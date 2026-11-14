@@ -3,6 +3,8 @@ package bike;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import java.io.*;
 
 public class Servidor extends Thread {
@@ -63,6 +65,78 @@ public class Servidor extends Thread {
 		System.out.println();
 	}
 	rs.close();*/
+
+	while (true) {
+		String request;
+		String velocidade, autonomia, peso, username, operacao, timestamp;
+		int bike_id;
+		// TODO: receive request from client
+		//request = 
+		Pattern p;
+		Matcher m;
+		p = Pattern.compile("(\\w+) (\\w+) (\\S+)");
+		m = p.matcher(request);
+
+		String response;
+		Strinag[] table, rows, values;
+		switch(m.group(1)) {
+			case "INSERT":
+				/*request = "INSERT BIKE " + velocidade + "," + autonomia + "," + peso;
+				  request = "INSERT USER " + username;
+				  request = "INSERT OP " + username + "," + bike_id + "," + operacao + "," + timestamp;*/
+				switch (m.group(2)) {
+					case "BIKE":
+						table[0] = "bicicletas";
+						rows[0] = "velocidade, autonomia, peso";
+						values[0] = m.group(3);
+						break;
+					case "USER":
+						table[0] = "utilizadores";
+						rows[0] = "username";
+						values[0] = m.group(3);
+						break;
+					case "OP":
+						table[0] = "historico_operacao";
+						rows[0] = "username, bicicleta, operacao, ts";
+						values[0] = m.group(3);
+
+						table[1] = "bicicletas";
+						rows[1] = "username, bicicleta, operacao, ts";
+						values[1] = m.group(3);
+	
+						table[2] = "historico_operacao";
+						rows[2] = "username, bicicleta, operacao, ts";
+						values[2] = m.group(3);
+						break;
+				}
+				for (int i = 0; i < table.length; i++){
+					stmt.executeUpdate("INSERT INTO " + table[i] + "(" + rows[i] + ")" + " VALUES (" + values[i] + ")");
+				}
+				break;
+			case "LIST":
+				break;
+			case "SELECT":
+				switch (m.group(2)) {
+					case "STATE":
+						rows = "state";
+						tables = "bicicletas";
+
+					case "HISTORY":
+				}
+				ResultSet rs = stmt.executeQuery("SELECT bicicletas.*, estados.estado FROM bicicletas JOIN estados ON bicicletas.estado = estados.id");
+				while(rs.next()) {
+					for(int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
+						System.out.print(rs.getString(i) + ", ");
+					}
+					System.out.println();
+				}
+				rs.close();
+			break;
+		request = "LIST BIKE velocidade=" + velocidade + ",autonomia=" + autonomia + ",peso=" + peso;
+			request = "SELECT STATE " + bike_id;
+			request = "SELECT HISTORY " + bike_id;
+		}
+	}
 
 	System.exit(0);
 
