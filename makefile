@@ -31,6 +31,7 @@ BUILD_DIR = build/classes
 LIB = resources/postgresql.jar
 CLASSPATH = $(BUILD_DIR):$(LIB)
 MAIN = bike.Servidor
+CLIENTE = bike.ClienteGeral
 JAVA_FILES = $(shell find $(SRC_DIR) -name "*.java") #$(SRC_DIR)/**/*.java
 
 # Targets
@@ -44,6 +45,9 @@ run:
 
 clean:
 	rm -rf $(BUILD_DIR)/*
+
+run_cliente:
+	java -classpath $(CLASSPATH) $(CLIENTE)
 
 # Usage:
 # To compile: make
