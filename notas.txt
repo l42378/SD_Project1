@@ -1,0 +1,12 @@
+/* Entre 3 e 5 estados operacionais, com as transições permitidas definidas pelos alunos (máquina de estados); o sistema deve rejeitar transições inválidas */
+
+disponivel
+alugada
+manutenção
+
+disponivel -> alugada (aluguer)
+disponivel -> manutenção (avaria em stock)
+alugada -> disponivel (devolução)
+alugada -> manutenção (avaria em uso)
+manutenção -> disponivel (conserto)
+manutenção -/> alugada (não se aluga sem estar disponivel)
