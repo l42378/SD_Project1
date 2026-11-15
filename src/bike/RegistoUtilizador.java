@@ -5,7 +5,7 @@ import java.io.Serializable;
  * Esta classe representa informação sobre um utilizador.
  * Nota: Serializável
  */
-public class RegistoUtilizador implements Serializable {
+public class RegistoUtilizador extends Registo implements Serializable {
 
     private String nome;
     private String email;
@@ -26,7 +26,7 @@ public class RegistoUtilizador implements Serializable {
 
     // metodos selectores: para consultar valores de atributos
     /**
-     * Devolve o nome do utilizador.  
+     * Devolve o nome do utilizador.
      */
     public String getNome() {
         return nome;
@@ -34,14 +34,14 @@ public class RegistoUtilizador implements Serializable {
 
 
     /**
-     * Devolve o email do utilizador.  
+     * Devolve o email do utilizador.
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * Devolve o username do utilizador.  
+     * Devolve o username do utilizador.
      */
     public String getUsername() {
         return username;
@@ -58,5 +58,5 @@ public class RegistoUtilizador implements Serializable {
                 nome + ", " + email + ", " +
                 username+"]";
     }
-  
+
 }

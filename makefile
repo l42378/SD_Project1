@@ -9,6 +9,10 @@ recreate_db:
 	sudo docker exec -it postgres-container psql bicicletas -U biker -c "INSERT INTO estados VALUES (0, 'disponível'), (1, 'alugada'), (2, 'em manutenção');"
 	sudo docker exec -it postgres-container psql -U biker -h localhost bicicletas -c "\dt"
 
+#prefill_db:
+#	sudo docker exec -it postgres-container psql bicicletas -U biker -c "INSERT INTO estados VALUES (0, 'disponível'), (1, 'alugada'), (2, 'em manutenção');"
+
+
 list_tables:
 	sudo -u postgres psql bicicletas -c "\d bicicletas"
 	sudo -u postgres psql bicicletas -c "\d estados"

@@ -6,7 +6,7 @@ import java.time.Instant;
  * Esta classe representa informação sobre uma operação.
  * Nota: Serializável
  */
-public class RegistoOperacao implements Serializable {
+public class RegistoOperacao extends Registo implements Serializable {
 
     private String userId;
     private String bikeId;
@@ -30,7 +30,7 @@ public class RegistoOperacao implements Serializable {
 
     // metodos selectores: para consultar valores de atributos
     /**
-     * Devolve o userId da operação.  
+     * Devolve o userId da operação.
      */
     public String getUserId() {
         return userId;
@@ -38,21 +38,21 @@ public class RegistoOperacao implements Serializable {
 
 
     /**
-     * Devolve o bikeId da operação.  
+     * Devolve o bikeId da operação.
      */
     public String getBikeId() {
         return bikeId;
     }
 
     /**
-     * Devolve a operação.  
+     * Devolve a operação.
      */
     public String getOperacao() {
         return operacao;
     }
 
     /**
-     * Devolve o timestamp.  
+     * Devolve o timestamp.
      */
     public Instant getTs() {
         return ts;
@@ -68,5 +68,5 @@ public class RegistoOperacao implements Serializable {
                 userId + ", " + bikeId + ", " +
                 operacao + ", " + ts+"]";
     }
-  
+
 }

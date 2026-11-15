@@ -5,11 +5,11 @@ import java.io.Serializable;
  * Esta classe representa informação sobre uma bicicleta.
  * Nota: Serializável
  */
-public class RegistoBicicleta implements Serializable {
+public class RegistoBicicleta extends Registo implements Serializable {
 
     private String velocidade;
     private String autonomia;
-    private int peso;
+    private String peso;
 
     /**
      * Cria uma instância de Registo, inicializando os atributos com os valores recebidos.
@@ -17,7 +17,7 @@ public class RegistoBicicleta implements Serializable {
      *  @param autonomia Autonomia da bicicleta.
      *  @param peso Peso da bicicleta.
      */
-    public RegistoBicicleta(String velocidade, String autonomia, int peso) {
+    public RegistoBicicleta(String velocidade, String autonomia, String peso) {
         this.velocidade = velocidade;
         this.autonomia = autonomia;
         this.peso = peso;
@@ -26,7 +26,7 @@ public class RegistoBicicleta implements Serializable {
 
     // metodos selectores: para consultar valores de atributos
     /**
-     * Devolve a velocidade da bicicleta.  
+     * Devolve a velocidade da bicicleta.
      */
     public String getVelocidade() {
         return velocidade;
@@ -34,16 +34,16 @@ public class RegistoBicicleta implements Serializable {
 
 
     /**
-     * Devolve a autonomia da bicicleta.  
+     * Devolve a autonomia da bicicleta.
      */
     public String getAutonomia() {
         return autonomia;
     }
 
     /**
-     * Devolve o peso da bicicleta.  
+     * Devolve o peso da bicicleta.
      */
-    public int getPeso() {
+    public String getPeso() {
         return peso;
     }
 
@@ -58,5 +58,5 @@ public class RegistoBicicleta implements Serializable {
                 velocidade + ", " + autonomia + ", " +
                 peso+"]";
     }
-  
+
 }
