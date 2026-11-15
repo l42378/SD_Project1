@@ -56,20 +56,20 @@ class ClienteGeral {
 			String request = "";
 
 			String nome, email, username;
-			String velocidade, autonomia, peso;
-			String bikeId, userId;
+			int velocidade, autonomia, peso;
+			int bikeId, userId;
 			PedidoDeRegisto pr;
-			pr = new PedidoDeRegisto(new RegistoBicicleta("ERR", "ERR", "ERR"));
+			pr = new PedidoDeRegisto(new RegistoBicicleta(0, 0, 0));
 			PedidoDeConsulta pc;
-			pc = new PedidoDeConsulta(new RegistoBicicleta("0", "0", "0"));
+			pc = new PedidoDeConsulta(new RegistoBicicleta(0, 0, 0));
 			switch(option){
 				case "1":
-					System.out.print("Velocidade: ");
-					velocidade = input.nextLine();
-					System.out.print("Autonomia: ");
-					autonomia = input.nextLine();
-					System.out.print("Peso: ");
-					peso = input.nextLine();
+					System.out.print("Velocidade (km/h): ");
+					velocidade = input.nextInt();
+					System.out.print("Autonomia (h): ");
+					autonomia = input.nextInt();
+					System.out.print("Peso (kg): ");
+					peso = input.nextInt();
 					//request = "INSERT BIKE " + velocidade + "," + autonomia + "," + peso;
 					pr = new PedidoDeRegisto(new RegistoBicicleta(velocidade, autonomia, peso));
 					break;
@@ -85,9 +85,9 @@ class ClienteGeral {
 					break;
 				case "3":
 					System.out.print("ID do utilizador: ");
-					userId = input.nextLine();
+					userId = input.nextInt();
 					System.out.print("ID da bicicleta: ");
-					bikeId = input.nextLine();
+					bikeId = input.nextInt();
 					System.out.print("Operação: ");
 					String operacao = input.nextLine();
 					//request = "INSERT OP " + username + "," + bikeId + "," + operacao + "," + Instant.now();
@@ -95,24 +95,24 @@ class ClienteGeral {
 					break;
 				case "4":
 					System.out.print("Velocidade: ");
-					velocidade = input.nextLine();
+					velocidade = input.nextInt();
 					System.out.print("Autonomia: ");
-					autonomia = input.nextLine();
+					autonomia = input.nextInt();
 					System.out.print("Peso: ");
-					peso = input.nextLine();
+					peso = input.nextInt();
 					//request = "LIST BIKE velocidade=" + velocidade + ",autonomia=" + autonomia + ",peso=" + peso;
 					pc = new PedidoDeConsulta(new RegistoBicicleta(velocidade, autonomia, peso));
 					break;
 				case "5":
 					System.out.print("ID da bicicleta: ");
-					bikeId = input.nextLine();
+					bikeId = input.nextInt();
 					//request = "SELECT STATE " + bikeId;
-					pc = new PedidoDeConsulta(new RegistoEstado(Integer.parseInt(bikeId)));
+					pc = new PedidoDeConsulta(new RegistoEstado(bikeId));
 					break;
 				case "6":
 					System.out.print("ID da bicicleta: ");
-					bikeId = input.nextLine();
-					pc = new PedidoDeConsulta(new RegistoHistorico(Integer.parseInt(bikeId)));
+					bikeId = input.nextInt();
+					pc = new PedidoDeConsulta(new RegistoHistorico(bikeId));
 					break;
 				case "7":
 					System.exit(0);

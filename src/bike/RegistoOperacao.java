@@ -8,8 +8,8 @@ import java.time.Instant;
  */
 public class RegistoOperacao extends Registo implements Serializable {
 
-    private String userId;
-    private String bikeId;
+    private int userId;
+    private int bikeId;
     private String operacao;
     private Instant ts;
 
@@ -20,7 +20,7 @@ public class RegistoOperacao extends Registo implements Serializable {
      *  @param operacao Operação a registar.
      *  @param ts Timestamp da operação.
      */
-    public RegistoOperacao(String userId, String bikeId, String operacao, Instant ts) {
+    public RegistoOperacao(int userId, int bikeId, String operacao, Instant ts) {
         this.userId = userId;
         this.bikeId = bikeId;
         this.operacao = operacao;
@@ -32,7 +32,7 @@ public class RegistoOperacao extends Registo implements Serializable {
     /**
      * Devolve o userId da operação.
      */
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
@@ -40,7 +40,7 @@ public class RegistoOperacao extends Registo implements Serializable {
     /**
      * Devolve o bikeId da operação.
      */
-    public String getBikeId() {
+    public int getBikeId() {
         return bikeId;
     }
 

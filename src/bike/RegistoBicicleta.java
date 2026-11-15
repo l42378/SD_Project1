@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class RegistoBicicleta extends Registo implements Serializable {
 
-    private String velocidade;
-    private String autonomia;
-    private String peso;
+    private int velocidade;
+    private int autonomia;
+    private int peso;
 
     /**
      * Cria uma instância de Registo, inicializando os atributos com os valores recebidos.
@@ -17,7 +17,7 @@ public class RegistoBicicleta extends Registo implements Serializable {
      *  @param autonomia Autonomia da bicicleta.
      *  @param peso Peso da bicicleta.
      */
-    public RegistoBicicleta(String velocidade, String autonomia, String peso) {
+    public RegistoBicicleta(int velocidade, int autonomia, int peso) {
         this.velocidade = velocidade;
         this.autonomia = autonomia;
         this.peso = peso;
@@ -28,7 +28,7 @@ public class RegistoBicicleta extends Registo implements Serializable {
     /**
      * Devolve a velocidade da bicicleta.
      */
-    public String getVelocidade() {
+    public int getVelocidade() {
         return velocidade;
     }
 
@@ -36,14 +36,14 @@ public class RegistoBicicleta extends Registo implements Serializable {
     /**
      * Devolve a autonomia da bicicleta.
      */
-    public String getAutonomia() {
+    public int getAutonomia() {
         return autonomia;
     }
 
     /**
      * Devolve o peso da bicicleta.
      */
-    public String getPeso() {
+    public int getPeso() {
         return peso;
     }
 
